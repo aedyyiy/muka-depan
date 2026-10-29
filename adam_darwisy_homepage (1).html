@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080d1b">
+<title>Adam Darwisy | EDU P3133</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+:root{--bg:#080d1b;--panel:rgba(18,27,49,.72);--text:#f4f7ff;--muted:#a7b4d0;--cyan:#62f4ff;--violet:#a68cff;--line:rgba(137,204,255,.2)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 75% 10%,rgba(95,68,180,.19),transparent 36%),radial-gradient(ellipse at 8% 35%,rgba(31,198,213,.12),transparent 32%),var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.15;background-image:linear-gradient(rgba(125,170,230,.13) 1px,transparent 1px),linear-gradient(90deg,rgba(125,170,230,.13) 1px,transparent 1px);background-size:52px 52px;mask-image:linear-gradient(to bottom,#000,transparent 82%);z-index:-1}
+a{color:inherit;text-decoration:none}.wrap{width:min(1160px,calc(100% - 40px));margin:auto}
+nav{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{font:700 1.05rem 'Space Grotesk';letter-spacing:.03em}.brand span{color:var(--cyan)}.navlinks{display:flex;gap:28px;color:var(--muted);font-size:.9rem}.navlinks a:hover{color:var(--cyan)}.pill{border:1px solid rgba(98,244,255,.45);padding:10px 15px;border-radius:99px;color:var(--cyan);font-size:.82rem}
+.hero{min-height:670px;display:grid;grid-template-columns:1.12fr .88fr;align-items:center;gap:45px;padding:75px 0 90px}.eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--cyan);font-size:.78rem;text-transform:uppercase;letter-spacing:.17em;font-weight:700}.dot{width:7px;height:7px;background:var(--cyan);border-radius:50%;box-shadow:0 0 14px var(--cyan)}h1,h2,h3{font-family:'Space Grotesk',sans-serif}h1{font-size:clamp(2.8rem,5.7vw,5.4rem);line-height:.99;letter-spacing:-.065em;margin:22px 0}.gradient{background:linear-gradient(100deg,#fff 10%,#85f7ff 50%,#b7a1ff 90%);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{max-width:610px;line-height:1.85;color:var(--muted);font-size:1.03rem}.actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 18px;border-radius:12px;font-weight:700;font-size:.9rem;transition:transform .25s,box-shadow .25s}.btn:hover{transform:translateY(-3px)}.primary{background:linear-gradient(110deg,var(--cyan),#9be8ff);color:#06111d;box-shadow:0 0 28px rgba(98,244,255,.17)}.secondary{border:1px solid var(--line);background:rgba(255,255,255,.035)}
+.lanyard-stage{height:500px;position:relative;display:flex;justify-content:center;align-items:center;perspective:1000px}.orbit{position:absolute;width:350px;height:350px;border:1px solid rgba(98,244,255,.19);border-radius:50%;animation:spin 24s linear infinite}.orbit:before,.orbit:after{content:"";position:absolute;border:1px dashed rgba(166,140,255,.3);border-radius:50%;inset:23px}.orbit:after{inset:-28px;border-style:solid;border-color:rgba(98,244,255,.08)}.orb-dot{position:absolute;width:9px;height:9px;border-radius:50%;background:var(--cyan);top:47px;right:32px;box-shadow:0 0 20px var(--cyan)}
+.lanyard{position:absolute;top:14px;width:196px;height:440px;display:flex;align-items:center;flex-direction:column;transform-origin:top center;cursor:grab;touch-action:none;filter:drop-shadow(0 16px 25px #0008);z-index:2;will-change:transform}.lanyard:active,.lanyard.is-dragging{cursor:grabbing}.lanyard.is-dragging .strap{filter:brightness(1.18)}.lanyard.is-dragging .card{border-color:rgba(98,244,255,.95)}.strap{width:45px;height:190px;flex:none;background:linear-gradient(90deg,#6b5ad8,#a68cff 48%,#5c50b7);border:1px solid #d0c4ff;border-radius:10px 10px 7px 7px;position:relative;box-shadow:inset 0 0 12px #fff3}.strap:before{content:"EDUP3133 • ADAM";position:absolute;top:18px;left:50%;transform:translateX(-50%);writing-mode:vertical-rl;letter-spacing:2px;font-size:9px;font-weight:700;color:white;white-space:nowrap}.clip{width:25px;height:24px;flex:none;border:4px solid #c9d8ec;border-bottom-width:7px;border-radius:5px;margin-top:-1px;background:linear-gradient(90deg,#7b8ba5,#edf7ff,#7b8ba5);z-index:2}.card{width:196px;padding:10px 10px 15px;background:linear-gradient(145deg,rgba(20,32,57,.98),rgba(8,15,31,.98));border:1px solid rgba(98,244,255,.55);border-radius:18px;box-shadow:0 0 35px #62f4ff18;position:absolute;top:205px;text-align:center;backdrop-filter:blur(14px);will-change:top;transition:box-shadow .2s}.photo-frame{height:170px;border-radius:11px;overflow:hidden;border:1px solid rgba(166,140,255,.65);background:linear-gradient(145deg,#192849,#293b64);position:relative}.photo-frame img{width:100%;height:100%;object-fit:cover;display:block}.photo-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;color:#b8c9e9;font-size:.8rem;line-height:1.5;padding:14px}.photo-fallback b{font:700 2.6rem 'Space Grotesk';color:var(--cyan)}.card-name{font:700 1rem 'Space Grotesk';margin:11px 0 3px}.card-sub{font-size:.73rem;color:var(--cyan);letter-spacing:.11em}.drag-hint{position:absolute;bottom:12px;color:var(--muted);font-size:.78rem;display:flex;gap:8px;align-items:center}.drag-hint span{color:var(--cyan);font-size:1rem}.float-tag{position:absolute;padding:10px 13px;border:1px solid var(--line);background:#111a30c9;border-radius:12px;color:#c8d5ed;font-size:.75rem;backdrop-filter:blur(8px);animation:float 5s ease-in-out infinite}.tag-one{right:0;top:80px}.tag-two{left:0;bottom:90px;animation-delay:-2s}
+section{padding:70px 0}.section-head{max-width:700px;margin-bottom:32px}.kicker{color:var(--cyan);text-transform:uppercase;letter-spacing:.16em;font-size:.75rem;font-weight:700}.section-head h2{font-size:clamp(2rem,4vw,3.1rem);letter-spacing:-.045em;margin:13px 0}.section-head p{color:var(--muted);line-height:1.8;margin:0}.glass{background:var(--panel);border:1px solid var(--line);border-radius:22px;backdrop-filter:blur(18px);box-shadow:0 20px 70px #0002}.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.info-card{padding:26px}.info-card h3{font-size:1.15rem;margin:0 0 20px}.info-row{display:grid;grid-template-columns:145px 1fr;gap:15px;padding:14px 0;border-bottom:1px solid rgba(137,204,255,.12);align-items:start}.info-row:last-child{border:0}.info-label{font-size:.83rem;color:var(--muted)}.info-value{font-weight:600;font-size:.91rem;overflow-wrap:anywhere}.ic-line{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.mini-btn{background:rgba(98,244,255,.09);color:var(--cyan);border:1px solid rgba(98,244,255,.3);border-radius:8px;padding:6px 10px;font-size:.75rem;cursor:pointer}.privacy-note{color:var(--muted);font-size:.76rem;line-height:1.5;margin-top:14px}
+.learning{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.learn-card{padding:25px;position:relative;overflow:hidden;transition:transform .3s,border-color .3s}.learn-card:hover{transform:translateY(-6px);border-color:rgba(98,244,255,.55)}.learn-card .num{font:700 2.4rem 'Space Grotesk';color:rgba(98,244,255,.35)}.learn-card h3{margin:16px 0 9px;font-size:1.1rem}.learn-card p{color:var(--muted);font-size:.9rem;line-height:1.75;margin:0}.learn-card:after{content:"";position:absolute;width:130px;height:130px;border-radius:50%;right:-65px;bottom:-75px;background:rgba(166,140,255,.09);filter:blur(5px)}
+.quote{margin-top:22px;padding:24px 27px;display:flex;gap:18px;align-items:flex-start}.quote-icon{font-size:1.5rem;color:var(--cyan)}.quote p{margin:0;color:#dbe6fb;line-height:1.8}.quote small{display:block;color:var(--muted);margin-top:10px}
+footer{border-top:1px solid var(--line);padding:27px 0;color:var(--muted);font-size:.8rem}.footer-row{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:translateY(0)}@keyframes spin{to{transform:rotate(360deg)}}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}@media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:55px;gap:10px}.hero-copy{text-align:center}.hero-copy p{margin-inline:auto}.actions{justify-content:center}.lanyard-stage{height:460px}.profile-grid{grid-template-columns:1fr}.learning{grid-template-columns:1fr}.navlinks{gap:13px}.navlinks a:not(.pill){display:none}.section-head{text-align:center;margin-inline:auto}.tag-one{right:2%}.tag-two{left:2%}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <nav><a class="brand" href="#home">ADAM<span>.</span>SPACE</a><div class="navlinks"><a href="#profil">Profil</a><a href="#pembelajaran">Pembelajaran</a><a class="pill" href="#pembelajaran">Terokai laman ↗</a></div></nav>
+</header>
+<main>
+<section class="hero wrap" id="home">
+  <div class="hero-copy reveal">
+    <div class="eyebrow"><span class="dot"></span> Ruang pembelajaran digital</div>
+    <h1>Hai, saya<br><span class="gradient">Adam Darwisy.</span></h1>
+    <p>Selamat datang ke laman pembelajaran digital saya! Saya <strong>Adam Darwisy bin Adeli</strong>, pelajar <strong>PIM 1</strong>. Laman web ini dibangunkan bagi memenuhi tugasan kursus <strong>EDUP3133 — Teknologi untuk Pengajaran dan Pembelajaran</strong>.</p>
+    <p>Di sini, teknologi bukan sekadar alat — ia ialah jambatan yang menghubungkan idea, kreativiti dan pengalaman pembelajaran. Jom teroka bagaimana teknologi dapat menjadikan pengajaran lebih interaktif, bermakna dan dekat dengan dunia murid masa kini.</p>
+    <div class="actions"><a class="btn primary" href="#pembelajaran">Mula meneroka <span>↗</span></a><a class="btn secondary" href="#profil">Kenali saya ↓</a></div>
+  </div>
+  <div class="lanyard-stage reveal" aria-label="Kad identiti interaktif. Seret lanyard ke kiri atau kanan.">
+    <div class="orbit"><i class="orb-dot"></i></div>
+    <div class="float-tag tag-one">✦ DIGITAL LEARNING</div><div class="float-tag tag-two">PIM 1 · OGOS 25/29</div>
+    <div class="lanyard" id="lanyard" role="img" aria-label="Lanyard interaktif, boleh diseret menggunakan tetikus atau jari">
+      <div class="strap"></div><div class="clip"></div>
+      <div class="card">
+        <div class="photo-frame">
+          <img id="profilePhoto" src="https://drive.google.com/thumbnail?id=1MDJfnkidkUJImV24eLD1S2H4UYqm5aJD&sz=w1000" alt="Gambar Adam Darwisy" referrerpolicy="no-referrer">
+          <div class="photo-fallback" id="photoFallback"><b>AD</b><span>Gambar profil<br>Adam Darwisy</span></div>
+        </div>
+        <div class="card-name">ADAM DARWISY</div><div class="card-sub">PIM 1 · EDU P3133</div>
+      </div>
+    </div>
+    <div class="drag-hint"><span>↕</span> Tarik ke bawah untuk meregangkan · lepaskan untuk hayunan</div>
+  </div>
+</section>
+<section class="wrap" id="profil">
+  <div class="section-head reveal"><div class="kicker">01 / Tentang saya</div><h2>Identiti di sebalik <span class="gradient">skrin.</span></h2><p>Kenali maklumat diri dan butiran tugasan yang menjadi asas kepada pembinaan laman pembelajaran ini.</p></div>
+  <div class="profile-grid">
+    <article class="glass info-card reveal"><h3>◈ Maklumat peribadi</h3>
+      <div class="info-row"><div class="info-label">Nama penuh</div><div class="info-value">Adam Darwisy bin Adeli</div></div>
+      <div class="info-row"><div class="info-label">Kelas</div><div class="info-value">PIM 1 (Ogos 25/29)</div></div>
+      <div class="info-row"><div class="info-label">Kad pengenalan</div><div class="info-value ic-line"><span id="icNumber">******1412</span><button class="mini-btn" id="toggleIc" type="button" aria-pressed="false">Tunjuk</button></div></div>
+      <div class="privacy-note">Nombor kad pengenalan disamarkan secara lalai. Tekan “Tunjuk” untuk melihat nombor penuh.</div>
+    </article>
+    <article class="glass info-card reveal"><h3>⌘ Maklumat akademik</h3>
+      <div class="info-row"><div class="info-label">Angka giliran</div><div class="info-value">2025082440219</div></div>
+      <div class="info-row"><div class="info-label">Kod kursus</div><div class="info-value">EDUP3133</div></div>
+      <div class="info-row"><div class="info-label">Nama kursus</div><div class="info-value">Teknologi untuk Pengajaran dan Pembelajaran</div></div>
+      <div class="info-row"><div class="info-label">Nama pensyarah</div><div class="info-value">Dr. Ahmad Shidki bin Mat Yusoff</div></div>
+    </article>
+  </div>
+</section>
+<section class="wrap" id="pembelajaran">
+  <div class="section-head reveal"><div class="kicker">02 / Peta pembelajaran</div><h2>Apa yang bakal <span class="gradient">diterokai?</span></h2><p>Laman ini menjadi ruang untuk memahami penggunaan teknologi dalam pendidikan — daripada konsep asas hingga aplikasi yang boleh mencetuskan pengalaman pembelajaran lebih menarik.</p></div>
+  <div class="learning">
+    <article class="glass learn-card reveal"><div class="num">01</div><h3>Memahami teknologi pendidikan</h3><p>Mengenali peranan teknologi dalam pengajaran dan pembelajaran serta bagaimana ia menyokong objektif pembelajaran.</p></article>
+    <article class="glass learn-card reveal"><div class="num">02</div><h3>Meneroka alat digital</h3><p>Melihat contoh sumber, aplikasi dan bahan digital yang boleh menjadikan penyampaian isi pelajaran lebih interaktif.</p></article>
+    <article class="glass learn-card reveal"><div class="num">03</div><h3>Mereka bentuk pengalaman</h3><p>Menghubungkan kreativiti dengan strategi pengajaran supaya pembelajaran lebih aktif, inklusif dan bermakna.</p></article>
+  </div>
+  <div class="glass quote reveal"><div class="quote-icon">✧</div><div><p>“Teknologi yang bermakna bukan sekadar menjadikan pembelajaran kelihatan moden, tetapi membantu setiap murid memahami, meneroka dan berkembang dengan lebih baik.”</p><small>— Prinsip yang menjadi inspirasi laman ini</small></div></div>
+</section>
+</main>
+<footer><div class="wrap footer-row"><span>© 2025–2029 Adam Darwisy bin Adeli</span><span>Dibina untuk tugasan EDUP3133 · Teknologi untuk PDP</span></div></footer>
+<script>
+const lanyard=document.getElementById('lanyard');
+const strap= lanyard.querySelector('.strap');
+const clip= lanyard.querySelector('.clip');
+const idCard= lanyard.querySelector('.card');
+let down=false, lastX=0, lastY=0, angle=0, stretch=0, angleV=0, stretchV=0, raf=0;
+const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));
+function renderLanyard(){
+  lanyard.style.transform=`rotate(${angle}deg)`;
+  strap.style.height=`${190+stretch}px`;
+  clip.style.transform=`translateY(${stretch}px)`;
+  idCard.style.top=`${205+stretch}px`;
+  idCard.style.boxShadow=`0 0 ${35+stretch*.22}px rgba(98,244,255,${.1+stretch/950})`;
+}
+lanyard.addEventListener('pointerdown',e=>{
+  down=true;lastX=e.clientX;lastY=e.clientY;angleV=0;stretchV=0;cancelAnimationFrame(raf);
+  lanyard.classList.add('is-dragging');lanyard.setPointerCapture(e.pointerId);e.preventDefault();
+});
+lanyard.addEventListener('pointermove',e=>{
+  if(!down)return;
+  const dx=e.clientX-lastX,dy=e.clientY-lastY;
+  angleV=dx*.24;stretchV=dy*.85;
+  angle=clamp(angle+dx*.3,-58,58);
+  stretch=clamp(stretch+dy*.95,0,270);
+  lastX=e.clientX;lastY=e.clientY;renderLanyard();
+});
+function release(){
+  if(!down)return;down=false;lanyard.classList.remove('is-dragging');
+  // Damped spring physics: the strap contracts gradually while the ID swings naturally.
+  function settle(){
+    const angleAcc=(-angle*0.075)-angleV*0.12;
+    angleV+=angleAcc;angle+=angleV;angleV*=.985;
+    const stretchAcc=(-stretch*0.055)-stretchV*0.105;
+    stretchV+=stretchAcc;stretch+=stretchV;stretchV*=.985;
+    if(stretch<0){stretch=0;stretchV=Math.abs(stretchV)*.35;}
+    angle=clamp(angle,-65,65);stretch=clamp(stretch,0,270);renderLanyard();
+    if(Math.abs(angle)>.12||Math.abs(angleV)>.12||stretch>.2||Math.abs(stretchV)>.12){raf=requestAnimationFrame(settle);}
+    else{angle=0;stretch=0;angleV=0;stretchV=0;renderLanyard();}
+  }
+  raf=requestAnimationFrame(settle);
+}
+lanyard.addEventListener('pointerup',release);lanyard.addEventListener('pointercancel',release);lanyard.addEventListener('lostpointercapture',()=>{if(down)release();});
+const fullIC='060526141233',ic=document.getElementById('icNumber'),toggle=document.getElementById('toggleIc');let visible=false;
+function renderIC(){ic.textContent=visible?fullIC:'********'+fullIC.slice(-4);toggle.textContent=visible?'Sembunyi':'Tunjuk';toggle.setAttribute('aria-pressed',String(visible));}
+toggle.addEventListener('click',()=>{visible=!visible;renderIC();});
+const photo=document.getElementById('profilePhoto'),fallback=document.getElementById('photoFallback');
+photo.addEventListener('load',()=>{if(photo.naturalWidth>0)fallback.style.display='none';});
+photo.addEventListener('error',()=>{photo.style.display='none';fallback.style.display='flex';});
+if(photo.complete&&photo.naturalWidth>0)fallback.style.display='none';
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
